@@ -16,7 +16,6 @@ public class Pong : Game
 
         // Background
         private Texture2D _BackgroundCourt;
-        private float backgroundScale = 3f;
 
         // Paddles
         private Texture2D _PaddleL;
@@ -36,7 +35,7 @@ public class Pong : Game
     private const int _WindowWidth = 750, _WindowHeight = 450;
     private const int _PlayAreaEdgeLineWidth = 12, _BallWidthHeight = 21;
 
-    private float _BallSpeed = 10;
+    private float _BallSpeed;
 
     private Vector2 _BallPosition, _BallDirection;
 
@@ -58,8 +57,8 @@ public class Pong : Game
         _graphics.PreferredBackBufferHeight = _WindowHeight;
         _graphics.ApplyChanges();
 
-        _BallPosition.X = 150;
-        _BallPosition.Y = 195;
+        _BallPosition.X = 350;
+        _BallPosition.Y = 225;
         _BallSpeed = 100;
 
         _BallDirection.X = 1;
@@ -109,7 +108,7 @@ public class Pong : Game
             Exit();
 
         // TODO: Add your update logic here
-        _BallPosition += _BallDirection * _BallSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+         _BallPosition += _BallDirection * _BallSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         _BallRect = new Rectangle((int)_BallPosition.X, (int)_BallPosition.Y,_BallWidthHeight, _BallWidthHeight);
 
@@ -142,8 +141,8 @@ public class Pong : Game
         // _spriteBatch.Draw(_BackgroundCourt, Vector2.Zero, null, Color.White, 0f, Vector2.Zero, backgroundScale, SpriteEffects.None, 0.1f);
         _spriteBatch.Draw(_BackgroundCourt, _playAreaBoundingBox, Color.SeaGreen);
 
-        _spriteBatch.Draw(_PaddleL, _PaddleLeft, null,  Color.White, 0f, Vector2.Zero, 6, SpriteEffects.None, 0.1f);
-        _spriteBatch.Draw(_PaddleR, _PaddleRight, null,  Color.White, 0f, Vector2.Zero, 6, SpriteEffects.None, 0.1f);
+        _spriteBatch.Draw(_PaddleL, _PaddleLeft, null,  Color.White, 0f, new Vector2(1,9), 6, SpriteEffects.None, 0.1f);
+        _spriteBatch.Draw(_PaddleR, _PaddleRight, null,  Color.White, 0f, new Vector2(1,9), 6, SpriteEffects.None, 0.1f);
 
         // Draws Ball
             
