@@ -46,14 +46,15 @@ public class Ball
 
         _position += _direction * _speed * (float) gameTime.ElapsedGameTime.TotalSeconds;
         //bounce ball off left and right sides
-        if(_position.X <= _playAreaBoundingBox.Left || (_position.X + _dimensions.X) >= _playAreaBoundingBox.Right)
+        if(_position.X <= _playAreaBoundingBox.Left 
+        || (_position.X + _dimensions.X) >= _playAreaBoundingBox.Right)
         {
             _direction.X *= -1;
         }
         //bounce ball off top and bottom
         if  (
-                _position.Y <= (_playAreaBoundingBox.Top) 
-                || (_position.Y + _dimensions.Y) >= (_playAreaBoundingBox.Bottom)
+                _position.Y <= _playAreaBoundingBox.Top
+                || (_position.Y + _dimensions.Y) >= _playAreaBoundingBox.Bottom
             )
         {
             _direction.Y *= -1;
